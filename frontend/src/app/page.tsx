@@ -244,8 +244,8 @@ export default function Home() {
         formattedUrl = `https://${url}`;
       }
       
-      const backendPort = 3015; // Ensure this matches your backend port
-      const response = await axios.post(`http://localhost:${backendPort}/api/scrape`, { 
+      // Use relative API endpoint for production compatibility
+      const response = await axios.post('/api/extract-commenters', { 
         url: formattedUrl
       });
       
@@ -489,8 +489,8 @@ export default function Home() {
       }
       
       // First call the backend to validate the request
-      const backendPort = 3015;
-      const response = await axios.post(`http://localhost:${backendPort}/api/airdrop`, {
+      // Use relative API endpoint for production compatibility
+      const response = await axios.post('/api/airdrop', {
         recipients: selectedWallets,
         tokenMint
       });

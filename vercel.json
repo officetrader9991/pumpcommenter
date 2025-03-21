@@ -10,7 +10,7 @@
     }
   ],
   "functions": {
-    "backend/server.js": {
+    "api/**/*.js": {
       "memory": 1024,
       "maxDuration": 10
     }

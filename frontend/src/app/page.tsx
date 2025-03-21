@@ -244,8 +244,8 @@ export default function Home() {
         formattedUrl = `https://${url}`;
       }
       
-      // Use relative API endpoint for production compatibility
-      const response = await axios.post('/api/extract-commenters', { 
+      const backendPort = 3015; // Ensure this matches your backend port
+      const response = await axios.post(`http://localhost:${backendPort}/api/scrape`, { 
         url: formattedUrl
       });
       
@@ -489,8 +489,8 @@ export default function Home() {
       }
       
       // First call the backend to validate the request
-      // Use relative API endpoint for production compatibility
-      const response = await axios.post('/api/airdrop', {
+      const backendPort = 3015;
+      const response = await axios.post(`http://localhost:${backendPort}/api/airdrop`, {
         recipients: selectedWallets,
         tokenMint
       });
@@ -942,19 +942,6 @@ export default function Home() {
             >
               Check SOL Balance
             </button>
-            <button 
-              onClick={requestExternalDevnetSol}
-              className="ml-1 bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-1 px-3 rounded text-sm"
-            >
-              Buy SOL
-            </button>
-            <button
-              onClick={createTestToken}
-              disabled={isCreatingToken}
-              className={`ml-1 bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-3 rounded text-sm ${isCreatingToken ? 'opacity-50 cursor-not-allowed' : ''}`}
-            >
-              {isCreatingToken ? 'Creating...' : 'Create Token'}
-            </button>
           </div>
         )}
 
@@ -967,8 +954,7 @@ export default function Home() {
           <p className="text-gray-700">
             You'll need SOL to create tokens and process airdrops. You can purchase SOL from exchanges like
             <a href="https://www.coinbase.com/price/solana" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline mx-1">Coinbase</a>or
-            <a href="https://www.binance.com/en/price/solana" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline mx-1">Binance</a>, 
-            or use the <button onClick={requestExternalDevnetSol} className="text-blue-600 hover:underline font-medium">Buy SOL</button> button to purchase directly in your Phantom wallet.
+            <a href="https://www.binance.com/en/price/solana" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline mx-1">Binance</a>.
           </p>
         </div>
 

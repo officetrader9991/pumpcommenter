@@ -69,20 +69,7 @@ Distribute tokens based on engagement level:
 
 ## Deployment
 
-This project is configured for easy deployment on Vercel. Follow these steps:
-
-1. Push your code to GitHub (already done)
-2. Go to [Vercel](https://vercel.com/) and sign up/log in
-3. Click "New Project"
-4. Import your GitHub repository (pumpcommenter)
-5. Configure the project:
-   - Framework Preset: Next.js
-   - Root Directory: ./
-   - Build Command: Will be automatically detected from vercel.json
-   - Output Directory: Will be automatically detected from vercel.json
-6. Click "Deploy"
-
-The configuration in vercel.json handles both the frontend and backend deployment. Your backend API will be accessible at yourdomain.vercel.app/api/...
+This project is ready to be deployed on Vercel.
 
 ## License
 
